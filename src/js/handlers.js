@@ -379,6 +379,8 @@ export default {
     }
 
     if (!action) {
+      if (event.target !== this.canvas && event.target !== this.image)
+        event.preventDefault();
       return;
     }
 

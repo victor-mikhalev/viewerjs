@@ -5,7 +5,7 @@
  * Copyright 2015-present Chen Fengyuan
  * Released under the MIT license
  *
- * Date: 2019-01-24T11:01:33.473Z
+ * Date: 2019-02-26T06:27:07.852Z
  */
 
 (function (global, factory) {
@@ -1500,6 +1500,7 @@
       }
 
       if (!action) {
+        if (event.target !== this.canvas && event.target !== this.image) event.preventDefault();
         return;
       }
 
@@ -1836,6 +1837,8 @@
               this.imageInitializing.abort();
             }
           } else {
+            // Cancel download to save bandwidth.
+            image.src = '';
             removeListener(image, EVENT_LOAD, onLoad);
 
             if (this.timeout) {
