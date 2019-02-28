@@ -379,7 +379,7 @@ export default {
     }
 
     if (!action) {
-      if (event.target !== this.canvas && event.target !== this.image)
+      if (event.target !== this.canvas && event.target !== this.image && event.target !== this.viewer)
         event.preventDefault();
       return;
     }
